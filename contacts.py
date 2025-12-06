@@ -1,11 +1,12 @@
-phonebook = []
+def search_contact():
+    name = input("Nhập tên cần tìm: ")
 
-def add_contact():
-    name = input("Nhập tên: ")
-    phone = input("Nhập số điện thoại: ")
+    found = False
+    for contact in phonebook:
+        if contact['name'].lower() == name.lower():
+            print(f"Đã tìm thấy: {contact['name']} - {contact['phone']}")
+            found = True
+            break
     
-    contact = {'name': name, 'phone': phone}
-    phonebook.append(contact)
-
-    print("Đã thêm liên hệ.")
-
+    if not found:
+        print("Không tìm thấy liên hệ.")
